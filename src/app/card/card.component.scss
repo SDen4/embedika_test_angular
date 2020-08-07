@@ -1,0 +1,34 @@
+// vars of colors
+$mainBlue: #2962FF;
+$textColor: rgba(0, 0, 0, 0.87);
+
+.itemCard {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 90vh;
+}
+
+.itemCard__back {
+    display: flex;
+    margin-bottom: 22px;
+}
+
+.itemCard__arrow {
+    transform: rotate(180deg);
+    margin-right: 8px;
+}
+
+.itemCard__back_text {
+    font-size: 14px;
+    line-height: 16px;
+    color: $mainBlue;
+}
+
+.itemCard__title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    color: $textColor;
+    margin-bottom: 53px;
+}
