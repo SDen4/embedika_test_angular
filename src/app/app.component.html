@@ -1,6 +1,24 @@
-<div>
-  <h1>Hello Angular!</h1>
-  <app-item></app-item>
-  <app-item></app-item>
-  <app-item></app-item>
+<div class="wrapper">
+  <div class="left">
+    <app-main></app-main>
+  </div>
+  <div class="right">
+    <app-filters></app-filters>
+  </div>
 </div>
+
+<style>
+  .wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 64px;
+    width: 100%;
+  }
+  .left {
+    width: 65%;
+  }
+  .right {
+    width: 30%;
+  }
+</style>

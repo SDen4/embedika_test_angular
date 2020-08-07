@@ -1,5 +1,6 @@
 // vars
 $mainBlue: #2962FF;
+$lineGray: #A5A5A5;
 
 .item {
     display: flex;
@@ -97,5 +98,5 @@ $mainBlue: #2962FF;
 .item__line {
     height: 1px;
     width: 100%;
-    background: #A5A5A5;
+    background: $lineGray;
 }
