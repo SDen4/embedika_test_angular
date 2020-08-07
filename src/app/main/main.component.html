@@ -1,6 +1,7 @@
 <div class="main">
-    <h1 class="main__title">SpaceX Ships</h1>
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
+    <h1 class="main__title">Users</h1>
+    <app-item 
+        *ngFor="let user of response.data"
+        [user]="user"
+    ></app-item>
 </div>

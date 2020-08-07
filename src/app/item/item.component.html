@@ -1,19 +1,19 @@
 <div class="item">
     <div class="item__title">
-        <div class="item__title_name">GO MS Chief</div>
+        <div class="item__title_name">{{user.first_name}} {{user.last_name}}</div>
         <div class="item__title_arrow_container">
             <div class="item__title_arrow"></div>
-            <a class="item__link"></a>
+            <a (click)="openItem()" class="item__link"></a>
         </div>
     </div>
     <div class="item__attr">
         <div class="item__attr_unit">
-            <div class="item__attr_name">Тип</div>
-            <div class="item__attr_info">High Speed Craft</div>
+            <div class="item__attr_name">Id</div>
+            <div class="item__attr_info">{{user.id}}</div>
         </div>
         <div class="item__attr_unit">
-            <div class="item__attr_name">Порт</div>
-            <div class="item__attr_info">Port Canaveral</div>
+            <div class="item__attr_name">E-mail</div>
+            <div class="item__attr_info">{{user.email}}</div>
         </div>
     </div>
     <div class="item__line"></div>
