@@ -1,0 +1,101 @@
+// vars
+$mainBlue: #2962FF;
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.item__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 29px;
+}
+
+.item__title_name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 23px;
+}
+
+.item__title_arrow_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    &:hover .item__title_arrow {
+        height: 4px;
+        width: 17px;
+    }
+}
+
+.item__title_arrow {
+    width: 16px;
+    height: 2px;
+    background: $mainBlue;
+    position: relative;
+    &:after, &:before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: inherit;
+        background: inherit;
+        position: absolute;
+        left: 8px;
+    }
+    &:after {
+        top: -4px;
+        transform: rotate(45deg);
+    }
+    &:before {
+        top: 4px;
+        transform: rotate(-45deg);
+    }
+}
+
+.item__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.item__attr {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 29px;
+}
+
+.item__attr_unit {
+    display: flex;
+    justify-content: flex-start;
+    width: 33%;
+}
+
+.item__attr_name {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.87);
+    width: 35%;
+}
+
+.item__attr_info {
+    font-size: 16px;
+    line-height: 24px;
+    color: $mainBlue;
+}
+
+.item__line {
+    height: 1px;
+    width: 100%;
+    background: #A5A5A5;
+}
