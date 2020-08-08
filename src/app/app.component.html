@@ -1,39 +1,19 @@
 <div class="wrapper">
-  <app-main class="left"></app-main>
-  <app-filters class="right"></app-filters>
-  <app-card class="card"></app-card>
+  <div class="main" [ngClass]="{'marked': string2}">
+    <h1 class="main__title">Users</h1>
+    <app-item 
+        (outToParent)='receiveFromChild($event)'
+        *ngFor="let user of response.data | search:searchStr"
+        [user]="user"
+    ></app-item>
+  </div>
+  <app-filters
+    class="right"
+    [ngClass]="{'marked': string2}"
+  ></app-filters>
+  <app-card
+    class="card"
+    [ngClass]="{'markedCard': string2}"
+    (outToParent)='receiveFromChild($event)'
+    ></app-card>
 </div>
-
-<style>
-  .wrapper {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    position: relative;
-    padding-top: 64px;
-    width: 100%;
-  }
-
-  .left {
-    width: 65%;
-    display: none;
-  }
-
-  .right {
-    width: 30%;
-    display: none;
-  }
-
-  .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-  }
-</style>
