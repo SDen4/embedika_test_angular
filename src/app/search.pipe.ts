@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class SearchPipe implements PipeTransform {
     transform(users, value) {
         return users.filter(user => {
-            return user.first_name.includes(value)
+            return user.email.includes(value)
         })
     }
 }

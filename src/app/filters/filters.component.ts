@@ -7,9 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
   @Input() responseSearch;
-  @Input() index: number;
   @Input() email;
+  @Input() item;
   searchStr = "";
+
+  // checkedCount(){
+  //   return 
+  // }
 
   constructor() {}
   ngOnInit() {}
