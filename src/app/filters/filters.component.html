@@ -3,20 +3,16 @@
         <div class="filters__title">Фильтры</div>
         <input class="filters__input" type="text" placeholder="Название" [(ngModel)]="searchStr">
         <div class="filters__unit">
-            <div class="filters__subtitle">Порт</div>
+            <div class="filters__subtitle">E-mail</div>
             <div class="filters__choosen">Выбраны 2</div>
             <form class="filters__items">
-                <label class="filters__choose_label">
+                <label 
+                    class="filters__choose_label"
+                    *ngFor="let email of responseSearch.data | search:searchStr"
+                    [email]="email"
+                >
                     <input class="filters__choose" type="checkbox">
-                    <span class="filters__choose_text">Port Canaveral</span>
-                </label>
-                <label class="filters__choose_label">
-                    <input class="filters__choose" type="checkbox">
-                    <span class="filters__choose_text">Port Canaveral</span>
-                </label> 
-                <label class="filters__choose_label">
-                    <input class="filters__choose" type="checkbox">
-                    <span class="filters__choose_text">Port Canaveral</span>
+                    <span class="filters__choose_text">{{email.email}}</span>
                 </label>
             </form>
         </div>

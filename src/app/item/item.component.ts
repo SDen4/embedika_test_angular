@@ -18,7 +18,6 @@ export class ItemComponent implements OnInit {
     // this.outToParent.emit(this.index);
     // this.outToParent.emit(this.isOpened);
     this.outToParent.emit(this.obj);
-    console.log(this.obj);
   }
 
   @Output() public outToParent = new EventEmitter();

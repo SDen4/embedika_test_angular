@@ -1,11 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
-export class FiltersComponent {
-  searchStr = ""
-  @Input() string3;
+export class FiltersComponent implements OnInit {
+  @Input() responseSearch;
+  @Input() index: number;
+  @Input() email;
+  searchStr = "";
+
+  constructor() {}
+  ngOnInit() {}
 }

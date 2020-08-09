@@ -1,4 +1,5 @@
 <div class="wrapper">
+
   <div class="main" [ngClass]="{'marked': active}">
     <h1 class="main__title">Users</h1>
     <app-item 
@@ -8,15 +9,19 @@
         [index]="idx"
     ></app-item>
   </div>
+
   <app-filters
     class="filters__component"
     [ngClass]="{'marked': active}"
+    [responseSearch]="response"
   ></app-filters>
+
   <app-card
     class="card"
     [ngClass]="{'markedCard': active}"
     (outToParent)='receiveFromChild($event)'
     [index]="index"
     [response]="response"
-    ></app-card>
+  ></app-card>
+
 </div>
