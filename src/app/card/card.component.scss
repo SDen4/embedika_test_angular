@@ -12,6 +12,15 @@ $textColor: rgba(0, 0, 0, 0.87);
 .itemCard__back {
     display: flex;
     margin-bottom: 22px;
+    width: fit-content;
+    cursor: pointer;
+    &:hover {
+        font-weight: 500;
+    }
+    &:hover .item__title_arrow {
+        height: 4px;
+        width: 17px;
+    }
 }
 
 .itemCard__arrow {
@@ -31,4 +40,15 @@ $textColor: rgba(0, 0, 0, 0.87);
     line-height: 33px;
     color: $textColor;
     margin-bottom: 53px;
+}
+
+.itemCard__attr_unit {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+}
+
+.itemCard__attr_avatar {
+    width: 100%;
+    height: 100%;
 }

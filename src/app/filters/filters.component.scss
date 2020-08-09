@@ -1,4 +1,4 @@
-//vars
+//vars of color
 $filtersBckg: #FFFFFF;
 $filtersBorderColor: #A5A5A5;
 
@@ -8,12 +8,12 @@ $filtersBorderColor: #A5A5A5;
     background: $filtersBckg;
     border: 1px solid $filtersBorderColor;
     width: 100%;
+    height: 100vh;
 }
 
 .filters__wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding-top: 52px;
     width: 90%;
 }
@@ -32,6 +32,7 @@ $filtersBorderColor: #A5A5A5;
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     margin-bottom: 41px;
+    outline: none;
 }
 
 .filters__subtitle {

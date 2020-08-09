@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -6,29 +6,28 @@ import { HttpClient } from "@angular/common/http";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'embedika-test';
 
   response: any;
-  public string2 = '';
+  public active = '';
+  public index = '';
+
   constructor(private http: HttpClient) {
   }
   
-  receiveFromChild(evnt){
-    this.string2 = evnt;
-    console.log(this.string2);
+  receiveFromChild(e){
+    this.active = e[0];
+    this.index = e[1];
   }
 
   @Output() public outToParent2 = new EventEmitter();
-
 
   ngOnInit() {
     this.http.get('https://reqres.in/api/users/')
     .subscribe((response)=>{
       this.response = response;
-      console.log(this.response);
     })
   }
-
   searchStr = ''
 }

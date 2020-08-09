@@ -1,22 +1,27 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent {
+export class ItemComponent implements OnInit {
   @Input() user;
-  isMarked = false;
+  @Input() index: number;
+  isOpened = false;
+  obj = [];
+  
 
   openItem() {
-    console.log("it works!!!");
-    this.isMarked = !this.isMarked;
-    this.outToParent.emit(this.isMarked);
+    this.isOpened = true;
+    this.obj = [this.isOpened, this.index];
+    // this.outToParent.emit(this.index);
+    // this.outToParent.emit(this.isOpened);
+    this.outToParent.emit(this.obj);
+    console.log(this.obj);
   }
 
   @Output() public outToParent = new EventEmitter();
-
   constructor() {}
   ngOnInit() {}
 };
