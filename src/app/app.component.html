@@ -4,16 +4,21 @@
     <h1 class="main__title">Users</h1>
     <app-item 
         (outToParent)='receiveFromChild($event)'
-        *ngFor="let user of response.data | search:searchStr; let idx = index"
+        *ngFor="let user of users; let idx = index"
         [user]="user"
         [index]="idx"
     ></app-item>
+    <div class="pagination">
+      <a class="pagination__arrow"></a>
+      <a class="pagination__item"></a> <!-- {{pagesNum}}-->
+      <a class="pagination__arrow pagination__arrow_right"></a>
+    </div>
   </div>
 
   <app-filters
     class="filters__component"
     [ngClass]="{'marked': active}"
-    [responseSearch]="response"
+    [users]="users"
   ></app-filters>
 
   <app-card
@@ -21,7 +26,8 @@
     [ngClass]="{'markedCard': active}"
     (outToParent)='receiveFromChild($event)'
     [index]="index"
-    [response]="response"
+    [users]="users"
   ></app-card>
-
 </div>
+
+<!-- <a class="pagination__item">{{pagesNum}}</a> -->

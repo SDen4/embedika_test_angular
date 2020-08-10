@@ -15,8 +15,6 @@ export class ItemComponent implements OnInit {
   openItem() {
     this.isOpened = true;
     this.obj = [this.isOpened, this.index];
-    // this.outToParent.emit(this.index);
-    // this.outToParent.emit(this.isOpened);
     this.outToParent.emit(this.obj);
   }
 

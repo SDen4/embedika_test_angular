@@ -4,12 +4,12 @@
         <input class="filters__input" type="text" placeholder="Поиск по E-mail" [(ngModel)]="searchStr">
         <div class="filters__unit">
             <div class="filters__subtitle">E-mail</div>
-            <div class="filters__choosen">Выбраны </div> 
+            <div class="filters__choosen">Выбраны {{count}}</div>
             <!-- {{checkedCount()}} -->
             <form class="filters__items">
                 <label 
                     class="filters__choose_label"
-                    *ngFor="let email of responseSearch.data | search:searchStr"
+                    *ngFor="let email of users | search:searchStr"
                     [email]="email"
                 >
                     <input class="filters__choose" type="checkbox">
@@ -22,7 +22,7 @@
             <form class="filters__items">
                 <label
                     class="filters__choose_label"
-                    *ngFor="let item of responseSearch.data"
+                    *ngFor="let item of users"
                     [item]="item"
                 >
                     <input class="filters__choose" type="radio" name="name">

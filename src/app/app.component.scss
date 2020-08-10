@@ -1,3 +1,6 @@
+// vars
+$mainBlue: #2962FF;
+
 .wrapper {
     display: flex;
     justify-content: space-evenly;
@@ -45,4 +48,42 @@
 
 .markedCard {
     display: flex;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pagination__arrow {
+    width: 8px;
+    height: 2px;
+    background: $mainBlue;
+    transform: rotate(45deg);
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+    transform-origin: 0px 2px;
+    &:after {
+        display: block;
+        content: "";
+        width: inherit;
+        height: inherit;
+        background: inherit;
+        transform: rotate(90deg);
+        position: absolute;
+        top: -3px;
+        left: -3px;
+    }
+}
+
+.pagination__arrow_right {
+    transform: rotate(225deg);
+    margin-left: 30px;
+}
+
+.pagination__item {
+    cursor: pointer;
+    margin: 0 20px;
 }
