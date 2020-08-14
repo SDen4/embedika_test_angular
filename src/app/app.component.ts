@@ -1,8 +1,5 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UsersService } from "./users.service";
-
-
-const itemsPerPage: number = 3;
 
 @Component({
   selector: 'app-root',
@@ -17,31 +14,40 @@ export class AppComponent implements OnInit {
   public active = '';
   public index = '';
   public searchStr = '';
-
   public usersLength: number;
-  public page: number;
-
+  public page: number = 1;
   public users: Array<any>;
-  // users = [];
+  public itemsPerPage: number = 5;
+  public pages: Array<any> = [1,2]; // temp!!!!!!
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) {
+    this.loadPage();
+    console.log(this.page)
+  }
 
-  ngOnInit() {
-    this.page = 1;
+  pageChange(idx, event) {
+    event.preventDefault();
+    this.page = idx+1;
+    this.loadPage();
+  }
 
+  onPageChanged(e) {
+    this.loadPage();
+  }
+
+  private loadPage(){
     this.users = this.usersService.users
-    this.usersService.getUsers(this.page, itemsPerPage).subscribe(users => {
-      this.users = users;
+    this.usersService.getUsers(this.page, this.itemsPerPage).subscribe(page => {
+      this.users = page.rows;
       console.log(this.users);
-      this.usersLength = users.length;
-      console.log(this.usersLength);
+      this.usersLength = page.totalCount;
     })
   }
 
-  receiveFromChild(e){
+  receiveFromChild(e: Array<any>){
     this.active = e[0];
     this.index = e[1];
   }
 
-  @Output() public outToParent2 = new EventEmitter();
+  ngOnInit() {}
 }

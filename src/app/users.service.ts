@@ -2,22 +2,27 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { TablePage } from './table-page';
 
 @Injectable()
 export class UsersService {
-    users = [];
+    public users: Array<any>;
+    private usersUrl: string = 'https://reqres.in/api/users/';
 
     constructor(private http: HttpClient) {}
 
-    getUsers(page:number, itemsPerPage:number) {
-        return this.http.get('https://reqres.in/api/users/')
+    public getUsers(page:number, itemsPerPage:number): Observable<TablePage> {
+        var users =  this.http.get<any[]>(this.usersUrl)
         .pipe(map(res=>res['data']));
-        // var users = this.http.get('https://reqres.in/api/users/')
-        // .pipe(map(res=>res['data']));
-        // return this.getPageItems(users, page, itemsPerPage);
+        return this.getPageItems(users, page, itemsPerPage);
     }
 
-    // private getPageItems(users: Observable<Array<any>>, page:number, itemsPerPage:number): {
-    //     return users;
-    // }
+    private getPageItems(users: Observable<Array<any>>, page:number, itemsPerPage:number): Observable<TablePage> {
+        return users.pipe(
+            map(u=>{
+                var startIndex = itemsPerPage * (page - 1);
+                return new TablePage( u.length, u.slice(startIndex, startIndex + itemsPerPage) );
+            })
+        );
+    }
 }
