@@ -13,6 +13,8 @@ $mainBlue: #2962FF;
 .main {
     background: #E5E5E5;
     width: 65%;
+    height: 100%;
+    position: relative;
 }
 
 .main__title {
@@ -54,6 +56,9 @@ $mainBlue: #2962FF;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .pagination__arrow {
@@ -86,4 +91,9 @@ $mainBlue: #2962FF;
 .pagination__item {
     cursor: pointer;
     margin: 0 20px;
+}
+
+.pagination__item_active {
+    color: $mainBlue;
+    font-weight: bold;
 }

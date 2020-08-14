@@ -25,13 +25,13 @@ export class AppComponent implements OnInit {
     console.log(this.page)
   }
 
-  pageChange(idx, event) {
+  pageChange(idx: number, event: any) {
     event.preventDefault();
     this.page = idx+1;
     this.loadPage();
   }
 
-  onPageChanged(e) {
+  onPageChanged(e:any) {
     this.loadPage();
   }
 

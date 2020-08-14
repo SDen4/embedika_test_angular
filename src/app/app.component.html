@@ -17,6 +17,7 @@
         class="pagination__item"
         *ngFor="let num of pages; let idx = index"
         (click)="pageChange(idx,$event)"
+        [ngClass]="{'pagination__item_active': num == page}"
       >{{num}}</a>
       <a class="pagination__arrow pagination__arrow_right"></a>
     </div>
