@@ -15,7 +15,7 @@
       <a 
         class="pagination__arrow"
         (click)="pageChangePrev($event)"
-      ></a>
+      ><</a>
       <a 
         class="pagination__item"
         *ngFor="let num of pages; let idx = index"
@@ -23,9 +23,9 @@
         [ngClass]="{'pagination__item_active': num == page}"
       >{{num}}</a>
       <a 
-        class="pagination__arrow pagination__arrow_right"
+        class="pagination__arrow"
         (click)="pageChangeNext($event)"
-      ></a>
+      >></a>
     </div>
   
   </div>
