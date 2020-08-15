@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { TablePage } from './table-page';
 
 @Injectable()
 export class UsersService {
+
     public users: Array<any>;
     private usersUrl: string = 'https://reqres.in/api/users/';
 

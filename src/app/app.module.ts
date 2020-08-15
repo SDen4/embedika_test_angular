@@ -8,7 +8,6 @@ import { ItemComponent } from './item/item.component';
 import { FiltersComponent } from './filters/filters.component';
 import { CardComponent } from './card/card.component';
 import { SearchPipe } from './search.pipe';
-// import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -17,8 +16,7 @@ import { SearchPipe } from './search.pipe';
     ItemComponent,
     FiltersComponent,
     CardComponent,
-    SearchPipe,
-    // PaginationComponent
+    SearchPipe
   ],
   imports: [
     BrowserModule,

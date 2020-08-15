@@ -64,10 +64,13 @@ $mainBlue: #2962FF;
 .pagination__arrow {
     color: $mainBlue;
     margin-right: 20px;
+    cursor: pointer;
+    transition: .2s;
+
     &:last-child {
         margin-right: 0;
     }
-    cursor: pointer;
+    
     &:hover {
         font-weight: bold;
     }
@@ -76,6 +79,11 @@ $mainBlue: #2962FF;
 .pagination__item {
     cursor: pointer;
     margin-right: 20px;
+    transition: .2s;
+    &:hover {
+        color: $mainBlue;
+        font-weight: bold;
+    }
 }
 
 .pagination__item_active {
