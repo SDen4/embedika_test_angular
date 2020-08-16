@@ -10,9 +10,8 @@
     >
     <app-item
       (outToParent)='receiveFromChild($event)'
-      *ngFor="let user of users | searchUsers: searchUsersValue; let idx = index"
+      *ngFor="let user of users | searchUsers: searchUsersValue"
       [user]="user"
-      [index]="idx"
     ></app-item>
   
     <div class="pagination">

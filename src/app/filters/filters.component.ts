@@ -1,6 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Observable } from "rxjs";
-import { filter } from 'rxjs/operators/';
 import { TotalService } from "../total.service";
 
 
@@ -10,11 +8,13 @@ import { TotalService } from "../total.service";
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit{
+
   @Input() usersTotalLength;
   @Input() item;
+
   public searchStr = "";
-  count: number = 0;
   public chosenArrs: Array<any> = [];
+  count: number = 0;
 
   constructor(private totalService: TotalService) {};
   ngOnInit() {
@@ -39,8 +39,6 @@ export class FiltersComponent implements OnInit{
     this.count  = Array.prototype.filter.call(arrOfEmails, function (check) {
       return check.checked;
     }).length;
-  
-    console.log(this.chosenArrs);
   }
   @Output() public outToParentChosenUsers = new EventEmitter();
 }

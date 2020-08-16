@@ -7,14 +7,15 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
   @Input() user;
-  @Input() index: number;
-  isOpened = false;
-  obj = [];
+  private id: number;
+  public isOpened = false;
+  public obj = [];
   
 
   openItem() {
+    this.id = this.user.id-1;
     this.isOpened = true;
-    this.obj = [this.isOpened, this.index];
+    this.obj = [this.isOpened, this.id];
     this.outToParent.emit(this.obj);
   }
 

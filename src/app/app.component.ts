@@ -13,13 +13,13 @@ export class AppComponent implements OnInit {
   title = 'embedika-test';
 
   public active = '';
-  public index = '';
+  public index: number;
   public searchStr = '';
   public usersLength: number;
   public usersTotalLength: Array<any> = [];
   public page: number = 1;
   public pages: Array<any> = [];
-  public users: Array<any>;
+  public users: Array<any> = [];
   public itemsPerPage: number = 5;
 
   public searchUsersValue: Array<any> = [];
@@ -45,12 +45,11 @@ export class AppComponent implements OnInit {
 
   receiveFromChild(e: Array<any>){
     this.active = e[0];
-    this.index = e[1];
+    this.index = e[1] - this.itemsPerPage * (this.page - 1);
   }
 
   receiveChosenUsers(e: Array<any>) {
     this.searchUsersValue = e;
-    console.log(this.searchUsersValue);
     this.loadPage();
   }
 
@@ -86,5 +85,6 @@ export class AppComponent implements OnInit {
         this.pages.push(i);
       }
     });
+    this.loadPage();
   }
 }
