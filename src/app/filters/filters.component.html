@@ -13,7 +13,7 @@
                     [email]="email"
                     [index]="id"
                 >
-                    <input class="filters__choose" type="checkbox" (click)="checked($event)">
+                    <input class="filters__choose" type="checkbox" (click)="checked(email.email, $event)">
                     <span class="filters__choose_text">{{email.email}}</span>
                 </label>
             </form>

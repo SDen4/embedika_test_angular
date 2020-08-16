@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { UsersService } from "./users.service";
 import { TotalService } from "./total.service";
 
@@ -21,6 +21,8 @@ export class AppComponent implements OnInit {
   public pages: Array<any> = [];
   public users: Array<any>;
   public itemsPerPage: number = 5;
+
+  public searchUsersValue: Array<any> = [];
 
   private numsOfPages: number;
   private idx: number = 1;
@@ -46,6 +48,11 @@ export class AppComponent implements OnInit {
     this.index = e[1];
   }
 
+  receiveChosenUsers(e: Array<any>) {
+    this.searchUsersValue = e;
+    console.log(this.searchUsersValue);
+    this.loadPage();
+  }
 
 // pagination's buttons actoins
   pageChange(idx: number, event: any) {

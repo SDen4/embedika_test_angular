@@ -4,9 +4,13 @@
 
     <h1 class="main__title">Users</h1>
 
+    <input
+      class="main__invisible"
+      [(ngModel)]="searchUsersValue"
+    >
     <app-item
       (outToParent)='receiveFromChild($event)'
-      *ngFor="let user of users | search:searchStr; let idx = index"
+      *ngFor="let user of users | searchUsers: searchUsersValue; let idx = index"
       [user]="user"
       [index]="idx"
     ></app-item>
@@ -34,6 +38,7 @@
     class="filters__component"
     [ngClass]="{'marked': active}"
     [usersTotalLength]="usersTotalLength"
+    (outToParentChosenUsers)='receiveChosenUsers($event)'
   ></app-filters>
 
   <app-card

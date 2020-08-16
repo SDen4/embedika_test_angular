@@ -13,7 +13,7 @@ $mainBlue: #2962FF;
 .main {
     background: #E5E5E5;
     width: 65%;
-    height: 100%;
+    min-height: 100%;
     position: relative;
 }
 
@@ -25,6 +25,10 @@ $mainBlue: #2962FF;
     font-size: 28px;
     line-height: 32px;
     color: rgba(0, 0, 0, 0.87);
+}
+
+.main__invisible {
+    display: none;
 }
 
 .filters__component {
