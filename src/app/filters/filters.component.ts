@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Observable } from "rxjs";
 import { filter } from 'rxjs/operators/';
-import { UsersService } from "../users.service";
+import { TotalService } from "../total.service";
 
 
 @Component({
@@ -10,25 +10,20 @@ import { UsersService } from "../users.service";
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit{
-  @Input() users;
-  // @Input() email;
+  @Input() usersTotalLength;
   @Input() item;
-  searchStr = "";
+  public searchStr = "";
   count: number = 0;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private totalService: TotalService) {};
   ngOnInit() {
-    this.users = this.usersService.users['email']
+    this.usersTotalLength = this.totalService.totalCount['email'];
   }
 
-  ngOnChanges() {
-    // console.log(this.email);
-    // this.count = this.users.filter(function (check) {
-    //   return check['selected'];
-    // }).length;
+  checked(event: any) {
+    let arrOfEmails = document.getElementsByClassName('filters__choose');
+    this.count  = Array.prototype.filter.call(arrOfEmails, function (check) {
+      return check.checked;
+    }).length;
   }
-
-  // $scope.selectedCounter = $scope.documents.filter(function(item1){
-  //   return item1.selected;
-  // }).length;
 }

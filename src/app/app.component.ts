@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from "./users.service";
 import { TotalService } from "./total.service";
 
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   public index = '';
   public searchStr = '';
   public usersLength: number;
-  public usersTotalLength: Array<any>;
+  public usersTotalLength: Array<any> = [];
   public page: number = 1;
   public pages: Array<any> = [];
   public users: Array<any>;
@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
     this.users = this.usersService.users;
     this.usersService.getUsers(this.page, this.itemsPerPage).subscribe(page => {
       this.users = page.rows;
-      console.log(this.users);
       this.usersLength = page.totalCount;
     })
   }

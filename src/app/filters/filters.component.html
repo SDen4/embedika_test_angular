@@ -1,7 +1,7 @@
 <div class="filters">
     <div class="filters__wrapper">
         <div class="filters__title">Фильтры</div>
-        <input class="filters__input" type="text" placeholder="Поиск по E-mail" [(ngModel)]="searchStr">
+        <input class="filters__input" type="text" placeholder="Поиск по e-mail" [(ngModel)]="searchStr">
         <div class="filters__unit">
             <div class="filters__subtitle">E-mail</div>
             <div class="filters__choosen">Выбраны {{count}}</div>
@@ -9,10 +9,11 @@
             <form class="filters__items">
                 <label 
                     class="filters__choose_label"
-                    *ngFor="let email of users | search:searchStr"
+                    *ngFor="let email of usersTotalLength | search: searchStr; let id = index"
                     [email]="email"
+                    [index]="id"
                 >
-                    <input class="filters__choose" type="checkbox">
+                    <input class="filters__choose" type="checkbox" (click)="checked($event)">
                     <span class="filters__choose_text">{{email.email}}</span>
                 </label>
             </form>
@@ -22,7 +23,7 @@
             <form class="filters__items">
                 <label
                     class="filters__choose_label"
-                    *ngFor="let item of users"
+                    *ngFor="let item of usersTotalLength | search: searchStr"
                     [item]="item"
                 >
                     <input class="filters__choose" type="radio" name="name">

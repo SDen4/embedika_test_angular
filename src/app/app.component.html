@@ -4,9 +4,9 @@
 
     <h1 class="main__title">Users</h1>
 
-    <app-item 
+    <app-item
       (outToParent)='receiveFromChild($event)'
-      *ngFor="let user of users; let idx = index"
+      *ngFor="let user of users | search:searchStr; let idx = index"
       [user]="user"
       [index]="idx"
     ></app-item>
@@ -33,7 +33,7 @@
   <app-filters
     class="filters__component"
     [ngClass]="{'marked': active}"
-    [users]="users"
+    [usersTotalLength]="usersTotalLength"
   ></app-filters>
 
   <app-card
