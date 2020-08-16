@@ -20,12 +20,12 @@ export class CardComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges() {
-    this.title = this.users[this.index].first_name + " " + this.users[this.index].last_name;
-    this.id = this.users[this.index].id;
-    this.email = this.users[this.index].email;
-    this.firstName = this.users[this.index].first_name;
-    this.lastName = this.users[this.index].last_name;
-    this.avatar = this.users[this.index].avatar
+    this.title = this.users[this.index]?.first_name + " " + this.users[this.index]?.last_name;
+    this.id = this.users[this.index]?.id;
+    this.email = this.users[this.index]?.email;
+    this.firstName = this.users[this.index]?.first_name;
+    this.lastName = this.users[this.index]?.last_name;
+    this.avatar = this.users[this.index]?.avatar
   }
 
   closeCard() {

@@ -21,9 +21,11 @@ export class FiltersComponent implements OnInit{
   }
 
   checked(event: any) {
+    let chosenArrs = [];
     let arrOfEmails = document.getElementsByClassName('filters__choose');
     this.count  = Array.prototype.filter.call(arrOfEmails, function (check) {
       return check.checked;
     }).length;
+    // consonle.log();
   }
 }
