@@ -94,3 +94,7 @@ $mainBlue: #2962FF;
     color: $mainBlue;
     font-weight: bold;
 }
+
+//- github pages
+//- git add dist && git commit -m "Initial dist subtree commit"
+//- git subtree push --prefix dist origin gh-pages
