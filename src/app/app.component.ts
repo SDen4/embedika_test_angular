@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from "./users.service";
 import { TotalService } from "./total.service";
 
@@ -12,11 +12,11 @@ import { TotalService } from "./total.service";
 export class AppComponent implements OnInit {
   title = 'embedika-test';
 
-  public active = '';
+  public active: boolean;
   public index: number;
   public searchStr: String = '';
   public usersLength: number;
-  public usersTotalLength: Array<any> = [];
+  public usersTotal: Array<any> = [];
   public page: number = 1;
   public pages: Array<any> = [];
   public users: Array<any> = [];
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
       this.users = page.rows;
       this.usersLength = page.totalCount;
       if(this.searchUsersValue.length > 0) {
-        this.users = this.usersTotalLength;
+        this.users = this.usersTotal;
         this.page = 1;
       }
     })
@@ -60,8 +60,10 @@ export class AppComponent implements OnInit {
   pageChange(idx: number, event: any) {
     event.preventDefault();
     this.idx = idx+1;
-    this.page = idx+1;
-    this.loadPage();
+    if (this.idx != this.page) {
+      this.page = this.idx;
+      this.loadPage();
+    }
   }
 
   pageChangeNext(event: any) {
@@ -82,8 +84,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.totalService.getTotalUsers().subscribe( (l: Array<any>) => {
-      this.usersTotalLength = l;
-      this.numsOfPages = Math.ceil(this.usersTotalLength.length / this.itemsPerPage);
+      this.usersTotal = l;
+      this.numsOfPages = Math.ceil(this.usersTotal.length / this.itemsPerPage);
       for (let i = 1; i <= this.numsOfPages ; i++) {
         this.pages.push(i);
       }

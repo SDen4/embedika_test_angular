@@ -8,7 +8,7 @@
             <form class="filters__items">
                 <label 
                     class="filters__choose_label"
-                    *ngFor="let email of usersTotalLength | search: searchStr; let id = index"
+                    *ngFor="let email of usersTotal | search: searchStr; let id = index"
                     [email]="email"
                     [index]="id"
                 >

@@ -9,8 +9,7 @@ import { TotalService } from "../total.service";
 })
 export class FiltersComponent implements OnInit{
 
-  @Input() usersTotalLength;
-  @Input() item;
+  @Input() usersTotal;
 
   public searchStr = "";
   public chosenArrs: Array<any> = [];
@@ -18,7 +17,7 @@ export class FiltersComponent implements OnInit{
 
   constructor(private totalService: TotalService) {};
   ngOnInit() {
-    this.usersTotalLength = this.totalService.totalCount['email'];
+    this.usersTotal = this.totalService.totalCount['email'];
   }
 
   checked(email: string, event: any) {

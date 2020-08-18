@@ -9,7 +9,7 @@ export class ItemComponent implements OnInit {
   @Input() user;
   private id: number;
   public isOpened = false;
-  public obj = [];
+  public obj: Array<any> = [];
 
   openItem() {
     this.id = this.user.id-1;

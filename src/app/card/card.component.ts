@@ -15,7 +15,7 @@ export class CardComponent implements OnChanges {
   email: string;
   firstName: string;
   lastName: string;
-  avatar: string;
+  avatarLink: string;
 
   constructor() {}
 
@@ -25,7 +25,7 @@ export class CardComponent implements OnChanges {
     this.email = this.users[this.index]?.email;
     this.firstName = this.users[this.index]?.first_name;
     this.lastName = this.users[this.index]?.last_name;
-    this.avatar = this.users[this.index]?.avatar
+    this.avatarLink = this.users[this.index]?.avatar
   }
 
   closeCard() {
