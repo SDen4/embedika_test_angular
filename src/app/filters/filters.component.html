@@ -17,18 +17,5 @@
                 </label>
             </form>
         </div>
-        <div class="filters__unit">
-            <div class="filters__subtitle">Имя и фамилия</div>
-            <form class="filters__items">
-                <label
-                    class="filters__choose_label"
-                    *ngFor="let item of usersTotalLength | search: searchStr"
-                    [item]="item"
-                >
-                    <input class="filters__choose" type="radio" name="name">
-                    <span class="filters__choose_text">{{item.first_name + " " + item.last_name}}</span>
-                </label>
-            </form>
-        </div>
     </div>
 </div>

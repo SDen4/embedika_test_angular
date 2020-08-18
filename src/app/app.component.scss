@@ -96,5 +96,5 @@ $mainBlue: #2962FF;
 }
 
 //- github pages
-//- git add dist && git commit -m "Initial dist subtree commit"
-//- git subtree push --prefix dist origin gh-pages
+//- ng build --prod --base-href "https://sden4.github.io/embedika_test_angular/"
+//- ngh --dir dist

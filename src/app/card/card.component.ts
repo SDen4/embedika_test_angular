@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter, OnChanges} from '@angular/core'
 })
 
 export class CardComponent implements OnChanges {
-  @Input() users;
+  @Input() users: Array<any>;
   @Input() index: number;
   @Input() isOpened: boolean;
   title: string;

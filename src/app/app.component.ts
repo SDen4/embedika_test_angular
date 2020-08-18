@@ -14,14 +14,13 @@ export class AppComponent implements OnInit {
 
   public active = '';
   public index: number;
-  public searchStr = '';
+  public searchStr: String = '';
   public usersLength: number;
   public usersTotalLength: Array<any> = [];
   public page: number = 1;
   public pages: Array<any> = [];
   public users: Array<any> = [];
   public itemsPerPage: number = 5;
-
   public searchUsersValue: Array<any> = [];
 
   private numsOfPages: number;
@@ -40,6 +39,10 @@ export class AppComponent implements OnInit {
     this.usersService.getUsers(this.page, this.itemsPerPage).subscribe(page => {
       this.users = page.rows;
       this.usersLength = page.totalCount;
+      if(this.searchUsersValue.length > 0) {
+        this.users = this.usersTotalLength;
+        this.page = 1;
+      }
     })
   }
 
@@ -78,7 +81,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.totalService.getTotalUsers().subscribe(l => {
+    this.totalService.getTotalUsers().subscribe( (l: Array<any>) => {
       this.usersTotalLength = l;
       this.numsOfPages = Math.ceil(this.usersTotalLength.length / this.itemsPerPage);
       for (let i = 1; i <= this.numsOfPages ; i++) {

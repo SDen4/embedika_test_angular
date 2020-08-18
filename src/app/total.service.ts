@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class TotalService {
     constructor(private http: HttpClient) {}
-    public totalCount;
+    public totalCount: any;
     private usersUrl: string = 'https://reqres.in/api/users/';
     
     public getTotalUsers() {

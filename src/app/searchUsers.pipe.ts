@@ -17,7 +17,6 @@ export class SearchUsers implements PipeTransform {
             };
             return arrTotal;
         } else {
-            arrTotal.length = 0; //?
             return users;
         }
     };

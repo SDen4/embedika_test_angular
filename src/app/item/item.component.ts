@@ -10,7 +10,6 @@ export class ItemComponent implements OnInit {
   private id: number;
   public isOpened = false;
   public obj = [];
-  
 
   openItem() {
     this.id = this.user.id-1;

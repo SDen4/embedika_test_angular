@@ -2,7 +2,7 @@
 
 ### by Denis Skryabin
 
-## Watch on [github-pages](https://sden4.github.io/embedika_test_angular/)
+## Open demo on [github-pages](https://sden4.github.io/embedika_test_angular/)
 
 
 

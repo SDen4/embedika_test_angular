@@ -8,12 +8,13 @@
       class="main__invisible"
       [(ngModel)]="searchUsersValue"
     >
+
     <app-item
       (outToParent)='receiveFromChild($event)'
       *ngFor="let user of users | searchUsers: searchUsersValue"
       [user]="user"
     ></app-item>
-  
+
     <div class="pagination">
       <a 
         class="pagination__arrow"
@@ -30,7 +31,6 @@
         (click)="pageChangeNext($event)"
       >></a>
     </div>
-  
   </div>
 
   <app-filters
@@ -47,5 +47,4 @@
     [index]="index"
     [users]="users"
   ></app-card>
-
 </div>
